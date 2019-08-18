@@ -7,7 +7,7 @@ boolean showMain=true, winScreen=false;
 void setup() {
   size(1280, 720);
   textAlign(CENTER);
-  font = createFont("Splatoon2", 64);
+  font = createFont("Splatoon2.otf", 64);
   textFont(font, 64);
   background(0);
   text("Loading..",width/2,height/2);
