@@ -3,11 +3,8 @@ PImage button1, button2;
 PImage[] splatico=new PImage[2];
 int team1, team2;
 boolean showMain=true, winScreen=false;
-color[] colourshift=new color[3];
 
 void setup() {
-  colourshift[1]=0;
-  colourshift[2]=0;
   size(1280, 720);
   textAlign(CENTER);
   font = createFont("Splatoon2.otf", 64);
@@ -29,17 +26,15 @@ Movie background;
 void mouseClicked() {
   if (rectCollision(100, height/2-button1.height/2, button1.width, button1.height)) {
     team1+=1;
-    //colourshift[1]=100;
   }
   if (rectCollision(width-100-button1.width, height/2-button1.height/2, button1.width, button1.height)) {
     team2+=1;
-    //colourshift[2]=100;
   }
 
   if (rectCollision(2, 2, button2.width, button2.height)) {
     colourid+=1;
-    if (colourid==52) {
-      colourid=2;
+    if (colourid==9) {
+      colourid=1;
     }
   }
   if (rectCollision(width/2-button2.width/2, 500, button2.width, button2.height)) {
@@ -49,7 +44,6 @@ void mouseClicked() {
 }
 
 void draw() {
-  //println(colourshift);
   tint(teamc[1][colourid]);
   image(background, 0, 0, background.width/2, background.height, 0, 0, background.width/2, background.height);
   tint(teamc[2][colourid]);
@@ -59,12 +53,10 @@ void draw() {
     pushMatrix();
     translate(width-1, height-1);
     scale(-1, -1);
-    tint(teamc[2][colourid]+colourshift[2]);
-    if (colourshift[2]!=0) {colourshift[2]-=2;}
+    tint(teamc[2][colourid]);
     image(button1, 100, height/2-button1.height/2);
     popMatrix();
-    tint(teamc[1][colourid]+colourshift[1]);
-    if (colourshift[1]!=0) {colourshift[1]-=2;}
+    tint(teamc[1][colourid]);
     image(button1, 100, height/2-button1.height/2);
     tint(100, 100, 100);
 
