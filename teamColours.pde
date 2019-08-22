@@ -1,7 +1,6 @@
 color[][] teamc=new color[3][52];
 int colourid=2;
 void teamColours() {
-    //teamc[1][1]=#D637AD;
     teamc[1][2]=#D637AD;
     teamc[1][3]=#E7D863;
     teamc[1][4]=#2834D6;
@@ -53,7 +52,6 @@ void teamColours() {
     teamc[1][50]=#31D78B;
     teamc[1][51]=#FFD998;
 
-    //teamc[2][1]=#21D08D;
     teamc[2][2]=#21D08D;
     teamc[2][3]=#EF1530;
     teamc[2][4]=#42D338;

@@ -3,11 +3,12 @@ PImage button1, button2;
 PImage[] splatico=new PImage[2];
 int team1, team2;
 boolean showMain=true, winScreen=false;
-color[] colourshift=new color[3];
+float[] buttontrans=new float[3];
 
 void setup() {
-  colourshift[1]=0;
-  colourshift[2]=0;
+  frameRate(30);
+  buttontrans[1]=1;
+  buttontrans[2]=1;
   size(1280, 720);
   textAlign(CENTER);
   font = createFont("Splatoon2.otf", 64);
@@ -29,11 +30,11 @@ Movie background;
 void mouseClicked() {
   if (rectCollision(100, height/2-button1.height/2, button1.width, button1.height)) {
     team1+=1;
-    //colourshift[1]=100;
+    buttontrans[1]=0.1;
   }
   if (rectCollision(width-100-button1.width, height/2-button1.height/2, button1.width, button1.height)) {
     team2+=1;
-    //colourshift[2]=100;
+    buttontrans[2]=0.1;
   }
 
   if (rectCollision(2, 2, button2.width, button2.height)) {
@@ -49,7 +50,10 @@ void mouseClicked() {
 }
 
 void draw() {
-  //println(colourshift);
+  buttontrans[1]+=0.02;
+  buttontrans[2]+=0.02;
+  if (buttontrans[1]>=1) {buttontrans[1]=1;}
+  if (buttontrans[2]>=1) {buttontrans[2]=1;}
   tint(teamc[1][colourid]);
   image(background, 0, 0, background.width/2, background.height, 0, 0, background.width/2, background.height);
   tint(teamc[2][colourid]);
@@ -59,12 +63,24 @@ void draw() {
     pushMatrix();
     translate(width-1, height-1);
     scale(-1, -1);
-    tint(teamc[2][colourid]+colourshift[2]);
-    if (colourshift[2]!=0) {colourshift[2]-=2;}
+    tint(255);
     image(button1, 100, height/2-button1.height/2);
     popMatrix();
-    tint(teamc[1][colourid]+colourshift[1]);
-    if (colourshift[1]!=0) {colourshift[1]-=2;}
+    image(button1, 100, height/2-button1.height/2);
+    fill(0);
+    text("Pearl", 100+button1.width/2, height/2+20);
+    text("Marina", width-100-button1.width+button1.width/2, height/2+20);
+    textSize(25);
+    text("Finish", width/2+1, 580);
+    textSize(64);
+    
+    pushMatrix();
+    translate(width-1, height-1);
+    scale(-1, -1);
+    tint(teamc[2][colourid],buttontrans[2]*255);
+    image(button1, 100, height/2-button1.height/2);
+    popMatrix();
+    tint(teamc[1][colourid],buttontrans[1]*255);
     image(button1, 100, height/2-button1.height/2);
     tint(100, 100, 100);
 
@@ -81,11 +97,15 @@ void draw() {
     image(splatico[1], 6+splatico[0].width/4, 3+splatico[0].height/4);
     popMatrix();
     tintReset();
+    fill(255,buttontrans[1]*255);
     text("Pearl", 100+button1.width/2, height/2+20);
+    fill(255,buttontrans[2]*255);
     text("Marina", width-100-button1.width+button1.width/2, height/2+20);
+    fill(255);
     textSize(25);
     text("Finish", width/2+1, 580);
     textSize(64);
+    println(frameRate);
   }
   if (winScreen) {
     if (team1>team2) {

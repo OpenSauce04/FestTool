@@ -31,10 +31,6 @@ void cursorDraw() {
   rotate(-45*PI/180);
   image(mousegfx, 0, 0);
   popMatrix();
-
-  if (anicounter==0) {
-    anicounter=1;
-  } else {
     anicounter=0;
     if (mousegfx==mg1) {
       mousegfx=mg2;
@@ -108,4 +104,3 @@ void cursorDraw() {
       }
     }
   }
-}
