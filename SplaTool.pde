@@ -81,6 +81,11 @@ void draw() {
     textSize(25);
     text("Finish", width/2+1, 580);
     textSize(64);
+    fill(255);
+    
+    text(team1, (width/2)-55, height/2);
+    text(" - ", width/2, height/2);
+    text(team2, (width/2)+55, height/2);
     
     pushMatrix();
     translate(width-1, height-1);
