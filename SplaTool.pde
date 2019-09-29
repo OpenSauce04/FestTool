@@ -64,18 +64,18 @@ void draw() {
     translate(width-1, height-1);
     scale(-1, -1);
     tint(255);
-    if (buttontrans[2]<=0.9){} else{
+    if (buttontrans[2]<=0.9) {
     image(button1, 100, height/2-button1.height/2);
     }
     popMatrix();
-    if (buttontrans[1]<=0.9){} else{
+    if (buttontrans[1]<=0.9) {
     image(button1, 100, height/2-button1.height/2);
     }
     fill(0);
-    if (buttontrans[1]<=0.9){} else{
+    if (buttontrans[1]<=0.9) {
     text("Pearl", 100+button1.width/2, height/2+20);
     }
-    if (buttontrans[2]<=0.9){} else{
+    if (buttontrans[2]<=0.9) {
     text("Marina", width-100-button1.width+button1.width/2, height/2+20);
     }
     textSize(25);
