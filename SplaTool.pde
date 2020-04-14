@@ -95,7 +95,7 @@ void draw() {
     popMatrix();
     tint(teamc[1][colourid],buttontrans[1]*255);
     image(button1, 100, height/2-button1.height/2);
-    tint(100, 100, 100);
+    tint(100);
 
     image(button2, width/2-button2.width/2, 500);
     tint(teamc[1][colourid], 227.5);
@@ -121,6 +121,7 @@ void draw() {
     //println(frameRate);
   }
   if (winScreen) {
+    textSize(64);
     if (team1>team2) {
       text("The results are a win for Team Pearl!", width/2, height/2);
     } else {
@@ -130,6 +131,10 @@ void draw() {
         text("The results are a draw!", width/2, height/2);
       }
     }
+    textSize(21);
+    tint(100);
+    image(button2, width/2-button2.width/2, 500);
+    text("Restart", width/2+1, 580);
   }
   cursorDraw();
 }
