@@ -43,9 +43,18 @@ void mouseClicked() {
       colourid=2;
     }
   }
-  if (rectCollision(width/2-button2.width/2, 500, button2.width, button2.height)) {
-    showMain=false;
-    winScreen=true;
+  if (winScreen) {
+    if (rectCollision(width/2-button2.width/2, 500, button2.width, button2.height)) {
+      showMain=true;
+      winScreen=false;
+      team1=0;
+      team2=0;
+    }
+  } else {
+    if (rectCollision(width/2-button2.width/2, 500, button2.width, button2.height)) {
+      showMain=false;
+      winScreen=true;
+    }
   }
 }
 
@@ -135,6 +144,7 @@ void draw() {
     tint(100);
     image(button2, width/2-button2.width/2, 500);
     text("Restart", width/2+1, 580);
+    tintReset();
   }
   cursorDraw();
 }
