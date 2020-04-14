@@ -6,10 +6,10 @@ boolean showMain=true, winScreen=false;
 float[] buttontrans=new float[3];
 
 void setup() {
-  frameRate(30);
+  frameRate(60);
   buttontrans[1]=1;
   buttontrans[2]=1;
-  size(1280, 720);
+  size(1280, 720, OPENGL);
   textAlign(CENTER);
   font = createFont("Splatoon2.otf", 64);
   textFont(font, 64);
@@ -118,7 +118,7 @@ void draw() {
     textSize(25);
     text("Finish", width/2+1, 580);
     textSize(64);
-    println(frameRate);
+    //println(frameRate);
   }
   if (winScreen) {
     if (team1>team2) {
