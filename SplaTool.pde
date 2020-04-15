@@ -18,6 +18,7 @@ void setup() {
   teamColours();
   background = new Movie(this, "bg.mp4");
   background.loop();
+  background.volume(0);
   cursorSetup();
   button1=loadImage("button1.png");
   button2=loadImage("button2.png");
